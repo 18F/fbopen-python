@@ -110,7 +110,3 @@ class FBOpen(object):
             response = FBOpen.getClient().get(uri, params)
             return response
         """
-            
-
-
-

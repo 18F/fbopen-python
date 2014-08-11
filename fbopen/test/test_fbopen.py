@@ -10,7 +10,7 @@ Tests for `fbopen` module.
 
 import unittest, os, inspect
 
-from fbopen import fbopen
+from ..fbopen import *
 
 from dotenv import Dotenv
 
@@ -19,7 +19,7 @@ class TestSynopsis(unittest.TestCase):
         env = Dotenv('.env')
         api_key = env.get('FBOPEN_API_KEY')
         
-        FBOpen = fbopen.FBOpen
+        #FBOpen = fbopen.FBOpen
         FBOpen.init(api_key)    
                     
         #FBOpen.Opp.find(10)
