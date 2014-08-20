@@ -23,7 +23,7 @@ class FBOpen(object):
         _url = "%s%s%s" % (_base_url, _fbopen_path, _version)
 
         @staticmethod
-        def oppsUri(opps_id=False):
+        def oppsUri(opps_id=None):
             url = FBOpen.Protocol._url
             if opps_id:
                 return "%s/opps/%s" % (url, opps_id)
@@ -31,7 +31,7 @@ class FBOpen(object):
                 return "%s/opps/" % (url)
         
     class Client(object):
-        def __init__(self, api_key=False):
+        def __init__(self, api_key=None):
             self._api_key = api_key
             
         def _handle_response(self, response):
@@ -52,27 +52,27 @@ class FBOpen(object):
     class OppsCollection(object):
         def __init__(self, data):
             self.opps = data.get('opps', [])
-            self.numFound = data.get('numFound', False)
-            self.maxScore = data.get('maxScore', False)
-            self.start = data.get('start', False)
+            self.numFound = data.get('numFound')
+            self.maxScore = data.get('maxScore')
+            self.start = data.get('start')
 
     class Opp(object):
         def __init__(self, data):
-            self.id = data.get('id', False)                
-            self.data_source = data.get('data_source', False)
-            self.solnbr = data.get('solnbr', False)
-            self.title = data.get('title', False)
-            self.listing_url = data.get('listing_url', False)
-            self.close_dt = data.get('close_dt', False)
-            self.posted_dt = data.get('posted_dt', False)
-            self.agency = data.get('agency', False)
-            self.office = data.get('office', False)
-            self.location = data.get('location', False)
-            self.zipcode = data.get('zipcode', False)
-            self.summary = data.get('summary', False)
-            self.description = data.get('description', False)
-            self.highlights = data.get('highlights', False)
-            self.score = data.get('score', False)
+            self.id = data.get('id')                
+            self.data_source = data.get('data_source')
+            self.solnbr = data.get('solnbr')
+            self.title = data.get('title')
+            self.listing_url = data.get('listing_url')
+            self.close_dt = data.get('close_dt')
+            self.posted_dt = data.get('posted_dt')
+            self.agency = data.get('agency')
+            self.office = data.get('office')
+            self.location = data.get('location')
+            self.zipcode = data.get('zipcode')
+            self.summary = data.get('summary')
+            self.description = data.get('description')
+            self.highlights = data.get('highlights')
+            self.score = data.get('score')
 
         @classmethod
         def search(cls, query, params=False):
@@ -88,9 +88,9 @@ class FBOpen(object):
             
             ops_collection_data = {
                 'opps' : opps,
-                'numFound' : response.get('numFound', False),
-                'start' : response.get('start', False),
-                'maxScore' : response.get('maxScore', False)
+                'numFound' : response.get('numFound'),
+                'start' : response.get('start'),
+                'maxScore' : response.get('maxScore')
             }
             
             opps_collection = FBOpen.OppsCollection(ops_collection_data)
@@ -101,7 +101,7 @@ class FBOpen(object):
         """
         TODO: /v0/opps/:id not yet deployed on server
         @classmethod
-        def find(cls, opp_id, params=False):
+        def find(cls, opp_id, params=None):
             if not params:
                 params = {}
 
