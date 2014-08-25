@@ -7,16 +7,17 @@ test_fbopen
 
 Tests for `fbopen` module.
 """
-
 import unittest, os, inspect
 
-from fbopen import fbopen
-
 from dotenv import Dotenv
+from fbopen import fbopen
+from os import path
+
 
 class TestSynopsis(unittest.TestCase):
     def test_synopsis(self):
-        env = Dotenv('.env')
+        env_path = path.join(path.dirname(path.abspath(__file__)), '../.env')
+        env = Dotenv(env_path)
         api_key = env.get('FBOPEN_API_KEY')
         
         FBOpen = fbopen.FBOpen
