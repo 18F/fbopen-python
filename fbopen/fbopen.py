@@ -2,6 +2,7 @@
 
 import requests
 
+
 class FBOpen(object):
     _client = False
     
@@ -87,6 +88,7 @@ class FBOpen(object):
 
             uri = FBOpen.Protocol.oppsUri()
             response = FBOpen.getClient().get(uri, params)
+            cls.last_response = response
             print(uri)
             print(params)
             docs = response['docs']
@@ -102,6 +104,9 @@ class FBOpen(object):
             opps_collection = FBOpen.OppsCollection(ops_collection_data)
             
             return opps_collection
+
+        def last_response(cls):
+            return cls.last_response
             
     
         """
