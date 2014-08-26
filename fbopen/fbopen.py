@@ -18,7 +18,9 @@ class FBOpen(object):
 
     class Protocol(object):
         _base_url = "https://api.data.gov"
-        _fbopen_path = "/gsa/fbopen/"
+        # TODO: this should be passed in, so the user can determine
+        # whether to use the development or production API
+        _fbopen_path = '/gsa/fbopen-dev/'
         _version = "v0"
         _url = "%s%s%s" % (_base_url, _fbopen_path, _version)
 
