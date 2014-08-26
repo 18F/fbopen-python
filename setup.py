@@ -26,7 +26,7 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Alan deLevie',
     author_email='alan.delevie@gsa.gov',
-    url='https://github.com/adelevie/fbopen-python-client',
+    url='https://github.com/18f/fbopen-python',
     packages=[
         'fbopen',
     ],
@@ -42,9 +42,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
