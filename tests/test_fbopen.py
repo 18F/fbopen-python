@@ -44,6 +44,9 @@ class TestSynopsis(unittest.TestCase):
         print(coll.__dict__)
         self.assertEqual(coll.numFound, 3)
 
+    def test_get_all_from_data_source__empty_keyword(self):
+        coll = self.client.Opp.search("", {'data_source': 'fbo.gov'})
+        print("Num results: {}".format(len(coll)))
 
 
 if __name__ == '__main__':

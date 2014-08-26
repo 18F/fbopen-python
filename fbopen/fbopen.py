@@ -58,6 +58,10 @@ class FBOpen(object):
             self.maxScore = data.get('maxScore')
             self.start = data.get('start')
 
+        def __len__(self):
+            return self.numFound
+
+
     class Opp(object):
         def __init__(self, data):
             self.id = data.get('id')                
@@ -77,14 +81,14 @@ class FBOpen(object):
             self.score = data.get('score')
 
         @classmethod
-        def search(cls, query, params=False):
-            if not params:
-                params = {}
-            data = dict(
-                list({'q' : query}.items()) + list(params.items())
-            )
+        def search(cls, query, params={}):
+            if query:
+                params.update({'q': query})
+
             uri = FBOpen.Protocol.oppsUri()
-            response = FBOpen.getClient().get(uri, data)
+            response = FBOpen.getClient().get(uri, params)
+            print(uri)
+            print(params)
             docs = response['docs']
             opps = [cls(doc) for doc in docs]
             
