@@ -105,9 +105,6 @@ class FBOpen(object):
             
             return opps_collection
 
-        def last_response(cls):
-            return cls.last_response
-            
     
         """
         TODO: /v0/opps/:id not yet deployed on server
