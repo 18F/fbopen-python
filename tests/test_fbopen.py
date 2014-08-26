@@ -21,7 +21,7 @@ class TestSynopsis(unittest.TestCase):
         api_key = env.get('FBOPEN_API_KEY')
         
         self.client = fbopen.FBOpen
-        self.client.init(api_key, dev=True)
+        self.client.init(api_key)
 
     def test_synopsis(self):
         coll = self.client.Opp.search("software development", {'start' : 2})
