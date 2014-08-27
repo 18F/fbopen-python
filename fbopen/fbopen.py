@@ -78,7 +78,7 @@ class FBOpen(object):
             self.zipcode = data.get('zipcode')
             self.summary = data.get('summary')
             self.description = data.get('description')
-            self.highlights = data.get('highlights')
+            self.highlight = data.get('highlight')
             self.score = data.get('score')
 
         @classmethod
